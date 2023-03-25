@@ -1,0 +1,1 @@
+nft_id, user_id, listed_time, is_sold

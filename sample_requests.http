@@ -1,0 +1,16 @@
+POST http://localhost:5000/buy HTTP/1.1
+Content-Type: application/json
+
+{
+    "userid": 8291,
+    "verb": "buy",
+    "noun": "nft",
+    "timestamp": 1656613800,
+    "properties": {
+        "mode": "netbank",
+        "bank": "hdfc",
+        "merchantid": 234,
+        "value": 4500,
+        "currency": "INR"
+    }
+}

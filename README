@@ -1,0 +1,35 @@
+How to run this project
+go to workspace and run command flask run
+
+How to hit buy api
+go to sample_requests.http file and click send request, api exposed over http
+
+what this code is covering
+
+scenario 1:
+when user is buying, system will place order and if order placed successfully it will add event to the queue to run rules on the data
+
+Here I used in-memory queue to add event, one worker is continuously reading this queue and checking given condition and taking actions
+In real system
+I will use Pub-Sub, events will be published and rules subscriber will read event and add event to further appropriate queue/streaming service
+
+Here I used hard coded three condition
+In real system I will use dynamic condition from rules Data:
+Create query like
+data[rule.property] is rule.condition rule.value
+rule.operator(and, or)
+...
+
+then rule.action
+
+Scenario 2:
+
+Send notification to user 7 days after listing of NFT
+
+If this time is fixed I will use similar logic where one worker will fetch users data as per condition and send them notification in appropriate time as per there location 
+
+Scenario 3:
+Send notification on basis of elapsed time after action,
+ for this I used priority queue here, 
+ In real system I will used service like Azure service Bus which will push event into queue with time to execute as param.
+ this will be scalable solution. 
